@@ -2,10 +2,10 @@
 
 ## Projektteam
 
-- Daniel Brynov
+- Dahnjel Brünof
 - Silas Albrecht
 - Carsten Nothof
-- Jannik Spletstößer
+- Yannic Splettstößer
 - Kevin Schieren
 
 ---
