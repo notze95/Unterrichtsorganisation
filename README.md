@@ -30,3 +30,7 @@ Programmiersprachen:
       - /teacher(anlegen, löschen, ändern)
       - /grant-rights
       - /logs
+
+### Canva Link (Bitte auf neuer Seite weiter Designen): 
+
+https://canva.link/cqbo5kmmxlxb0hj
