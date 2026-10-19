@@ -12,15 +12,27 @@ namespace Unterrichtsorganisation.Controllers {
         }
         [HttpGet]
         public async Task<ActionResult> Index() {
-            User user = new() {
-                Id = 1,
-                Firstname = "TestVorname",
-                Lastname = "TestNachname",
-                UserName = "TestUser",
-                Password = "OHHVerschlüsselt",
-                RoleId = 1
-            };
-            await userService.CreateAsync(user);
+            //var client = new OneRosterClient(
+            //    tenantId,
+            //    clientId,
+            //    clientSecret);
+
+            //var users = await client.ReadAsStringAsync(
+            //    resource: "/ims/oneroster/rostering/v1p1/users",
+            //    envelope: "users",
+            //    limit: 100,
+            //    offset: 0);
+
+
+            //User user = new() {
+            //    Id = 2,
+            //    Firstname = "Silas",
+            //    Lastname = "AAlbrecht",
+            //    UserName = "Salbrecht",
+            //    Password = "IchBinSOGeilAufSpecki123",
+            //    RoleId = 3
+            //};
+            //await userService.CreateAsync(user);
             return Ok();
         }
 
