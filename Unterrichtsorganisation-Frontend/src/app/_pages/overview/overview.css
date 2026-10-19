@@ -1,0 +1,120 @@
+.page {
+    background: #efefef;
+    min-height: 100vh;
+    padding-bottom: 40px;
+}
+
+.header {
+    height: 80px;
+    background: #0d4fb3;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 30px;
+
+    color: white;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.logo-area h1 {
+    margin: 0;
+    font-size: 48px;
+}
+
+.user-area {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.user-area span {
+    font-size: 24px;
+}
+
+.icon-button {
+    width: 50px;
+    height: 50px;
+
+    border: none;
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    font-size: 24px;
+}
+
+.logout-btn {
+    background: white;
+    border: 2px solid black;
+    border-radius: 20px;
+
+    padding: 10px 20px;
+
+    cursor: pointer;
+}
+
+.create-btn {
+    margin: 25px 40px;
+
+    background: #0d4fb3;
+    color: white;
+
+    border: none;
+    border-radius: 25px;
+
+    padding: 12px 24px;
+
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.container {
+    background: #d3d3d3;
+
+    margin: 20px 40px;
+    padding: 20px;
+
+    border-radius: 30px;
+}
+
+.container h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.row {
+    background: white;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    padding: 15px 30px;
+    margin-bottom: 12px;
+
+    border-radius: 25px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.row:hover {
+    background: #f5f5f5;
+}
+
+.row span {
+    text-align: center;
+}

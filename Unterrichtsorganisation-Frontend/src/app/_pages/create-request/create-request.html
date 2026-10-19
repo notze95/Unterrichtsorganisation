@@ -1,0 +1,161 @@
+<div class="create-request-container">
+
+    <h1>Neuen Antrag erstellen</h1>
+
+    <div class="form-group">
+
+        <label>Antragsart</label>
+
+        <select [(ngModel)]="selectedType">
+
+            <option [ngValue]="null">
+                Bitte auswählen
+            </option>
+
+            <option [ngValue]="AntragTyp.VERTRETUNG">
+                Unterrichtsvertretung
+            </option>
+
+            <option [ngValue]="AntragTyp.DIENSTBEFREIUNG">
+                Dienstbefreiung
+            </option>
+
+            <option [ngValue]="AntragTyp.FORTBILDUNG">
+                Fortbildung
+            </option>
+
+            <option [ngValue]="AntragTyp.VERLEGUNG">
+                Unterrichtsverlegung
+            </option>
+
+            <option [ngValue]="AntragTyp.TAUSCH">
+                Unterrichtstausch
+            </option>
+
+            <option [ngValue]="AntragTyp.KLASSE_ABWESEND">
+                Klasse abwesend
+            </option>
+
+            <option [ngValue]="AntragTyp.VERANSTALTUNG">
+                Veranstaltung
+            </option>
+
+        </select>
+
+    </div>
+
+    @if (
+    selectedType === AntragTyp.VERTRETUNG ||
+    selectedType === AntragTyp.DIENSTBEFREIUNG ||
+    selectedType === AntragTyp.FORTBILDUNG
+    ) {
+
+    <div class="section">
+
+        <h2>Abwesenheit</h2>
+
+        <label>Grund</label>
+        <textarea [(ngModel)]="grund"></textarea>
+
+        <label>Beginn Datum</label>
+        <input type="date" [(ngModel)]="datumVon">
+
+        <label>Beginn Uhrzeit</label>
+        <input type="time" [(ngModel)]="zeitVon">
+
+        <label>Ende Datum</label>
+        <input type="date" [(ngModel)]="datumBis">
+
+        <label>Ende Uhrzeit</label>
+        <input type="time" [(ngModel)]="zeitBis">
+
+    </div>
+
+    }
+
+    @if (
+    selectedType === AntragTyp.VERLEGUNG ||
+    selectedType === AntragTyp.TAUSCH
+    ) {
+
+    <div class="section">
+
+        <h2>Unterrichtsverlegung / Unterrichtstausch</h2>
+
+        <label>Datum</label>
+        <input type="date">
+
+        <label>Stunde</label>
+        <input type="number">
+
+        <label>Raum</label>
+        <input type="text">
+
+    </div>
+
+    }
+
+    @if (
+    selectedType === AntragTyp.KLASSE_ABWESEND
+    ) {
+
+    <div class="section">
+
+        <h2>Klasse abwesend</h2>
+
+        <label>Klasse</label>
+        <input type="text">
+
+        <label>Grund</label>
+        <textarea></textarea>
+
+        <label>Von</label>
+        <input type="datetime-local">
+
+        <label>Bis</label>
+        <input type="datetime-local">
+
+    </div>
+
+    }
+
+    @if (
+    selectedType === AntragTyp.VERANSTALTUNG
+    ) {
+
+    <div class="section">
+
+        <h2>Veranstaltung</h2>
+
+        <label>Veranstaltungsart</label>
+
+        <select [(ngModel)]="veranstaltungsArt">
+
+            <option>Unterrichtsgang</option>
+            <option>Schulfahrt</option>
+            <option>Projekt</option>
+            <option>International</option>
+            <option>Sonstiges</option>
+
+        </select>
+
+        <label>Ort</label>
+        <input type="text">
+
+        <label>Beginn</label>
+        <input type="datetime-local">
+
+        <label>Ende</label>
+        <input type="datetime-local">
+
+    </div>
+
+    }
+
+    <button class="submit-btn" (click)="absenden()">
+
+        Antrag absenden
+
+    </button>
+
+</div>

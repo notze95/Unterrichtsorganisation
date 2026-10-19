@@ -1,1 +1,91 @@
-<p>overview works!</p>
+<div class="page">
+
+    <header class="header">
+
+        <div class="logo-area">
+            <div class="logo">
+                TGBBZ
+            </div>
+
+            <h1>Antragsverwaltung</h1>
+        </div>
+
+        <div class="user-area">
+
+            <span>{{ userName }}</span>
+
+            <button class="icon-button">
+                ⚙
+            </button>
+
+            <button class="logout-btn" (click)="logout()">
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+    <button class="create-btn" (click)="neuerAntrag()">
+        + Antrag anlegen
+    </button>
+
+    @if (canApprove) {
+
+    <section class="container">
+
+        <h2>Zu genehmigen</h2>
+
+        @for (antrag of zuGenehmigen; track antrag.id) {
+
+        <div class="row" (click)="openAntrag(antrag.id)">
+
+            <span>{{ antrag.id }}</span>
+            <span>{{ antrag.datum }}</span>
+            <span>{{ antrag.status }}</span>
+
+        </div>
+
+        }
+
+    </section>
+
+    }
+
+    <section class="container">
+
+        <h2>Entwürfe</h2>
+
+        @for (antrag of entwuerfe; track antrag.id) {
+
+        <div class="row" (click)="openAntrag(antrag.id)">
+
+            <span>{{ antrag.id }}</span>
+            <span>{{ antrag.datum }}</span>
+            <span>{{ antrag.status }}</span>
+
+        </div>
+
+        }
+
+    </section>
+
+    <section class="container">
+
+        <h2>Gesendete Anträge</h2>
+
+        @for (antrag of gesendeteAntraege; track antrag.id) {
+
+        <div class="row" (click)="openAntrag(antrag.id)">
+
+            <span>{{ antrag.id }}</span>
+            <span>{{ antrag.datum }}</span>
+            <span>{{ antrag.status }}</span>
+
+        </div>
+
+        }
+
+    </section>
+
+</div>

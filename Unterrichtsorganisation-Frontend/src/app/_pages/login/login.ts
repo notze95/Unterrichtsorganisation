@@ -17,6 +17,8 @@ export class Login {
   constructor(
     private authService: AuthService
   ) { }
+
+
   login(): void {
 
     this.authService
@@ -30,6 +32,8 @@ export class Login {
 
         error: (error) => {
           console.error('Login fehlgeschlagen');
+          // Temporäre weiterleitung auf overview seite, muss im Anschluss angepasst werden wenn api funktioniert
+
           console.error(error);
         }
       });

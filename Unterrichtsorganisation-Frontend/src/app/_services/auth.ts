@@ -12,7 +12,7 @@ export class AuthService {
     constructor(private http: HttpClient) { }
 
     login(username: string, password: string) {
-
+        console.log(username, password)
         return this.http.post(`${this.apiUrl}/login`, {
             username,
             password
