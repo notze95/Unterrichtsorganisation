@@ -18,25 +18,31 @@ export class Login {
     private authService: AuthService
   ) { }
 
-
   login(): void {
-
     this.authService
       .login(this.username, this.password)
       .subscribe({
-
         next: (response) => {
           console.log('Login erfolgreich');
           console.log(response);
+
+          // Hier könntest du später auf die Overview navigieren
+          // this.router.navigate(['/overview']);
         },
 
         error: (error) => {
           console.error('Login fehlgeschlagen');
-          // Temporäre weiterleitung auf overview seite, muss im Anschluss angepasst werden wenn api funktioniert
-
           console.error(error);
         }
       });
-
   }
 }
+
+// in andere Komponente einfügen wenn api call vorhanden da token immer mitgesendet werden muss
+// constructor(private authService: AuthService) {}
+
+// ngOnInit(): void {
+//   const token = this.authService.getToken();
+
+//   console.log(token);
+// }
