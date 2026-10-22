@@ -16,6 +16,10 @@ h1 {
     margin-bottom: 30px;
 }
 
+h2 {
+    margin-bottom: 20px;
+}
+
 .form-group,
 .section {
     display: flex;
@@ -41,18 +45,27 @@ label {
 input,
 select,
 textarea {
+    width: 100%;
+
     padding: 10px;
 
     border: 1px solid #d5d5d5;
-
     border-radius: 8px;
 
     font-size: 14px;
+
+    box-sizing: border-box;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #0d4fb3;
 }
 
 textarea {
     min-height: 100px;
-
     resize: vertical;
 }
 
@@ -61,16 +74,142 @@ textarea {
     color: white;
 
     border: none;
-
     border-radius: 10px;
 
     padding: 12px 24px;
 
     cursor: pointer;
-
     font-size: 16px;
+
+    margin-top: 20px;
 }
 
 .submit-btn:hover {
     background-color: #083b87;
+}
+
+/* ========================= */
+/* Unterrichtseinträge */
+/* ========================= */
+
+.eintrag {
+    background-color: white;
+
+    border: 1px solid #dcdcdc;
+    border-radius: 12px;
+
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.eintrag-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 15px;
+    padding-bottom: 12px;
+
+    border-bottom: 1px solid #ececec;
+}
+
+.eintrag-header h3 {
+    margin: 0;
+
+    color: #333;
+
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Einklapp-Button */
+.eintrag-header button {
+    background: none;
+    border: none;
+
+    color: #0d4fb3;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    padding: 0;
+}
+
+.eintrag-header button:hover {
+    text-decoration: underline;
+}
+
+/* Bemerkung */
+
+.eintrag h4 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+
+    color: #444;
+}
+
+input[type="radio"] {
+    width: auto;
+
+    margin-right: 8px;
+}
+
+label:has(input[type="radio"]) {
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    font-weight: 500;
+}
+
+/* Entfernen-Button */
+
+.eintrag button[type="button"] {
+    margin-top: 15px;
+
+    background-color: #0d4fb3;
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    padding: 10px 14px;
+
+    cursor: pointer;
+}
+
+.eintrag button[type="button"]:hover {
+    background-color: #0d4fb3;
+}
+
+/* Hinzufügen-Button */
+
+.add-entry-btn {
+    width: 100%;
+
+    margin-top: 10px;
+
+    background-color: #0d4fb3;
+    color: white;
+
+    border: none;
+    border-radius: 10px;
+
+    padding: 12px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.add-entry-btn:hover {
+    background-color: #083b87;
+}
+
+hr {
+    border: none;
 }

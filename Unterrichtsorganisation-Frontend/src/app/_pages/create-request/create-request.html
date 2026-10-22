@@ -69,6 +69,23 @@
         <label>Ende Uhrzeit</label>
         <input type="time" [(ngModel)]="zeitBis">
 
+        <label>Vertretungsmaterial</label>
+
+        <select [(ngModel)]="vertretungsmaterial">
+            <option [ngValue]="null">
+                Bitte auswählen
+            </option>
+            <option value="LERNPLATTFORM">
+                Auf Lernplattform
+            </option>
+            <option value="ABSPRACHE">
+                Nach Absprache
+            </option>
+            <option value="MAIL">
+                Per Mail
+            </option>
+        </select>
+
     </div>
 
     }
@@ -82,14 +99,90 @@
 
         <h2>Unterrichtsverlegung / Unterrichtstausch</h2>
 
-        <label>Datum</label>
-        <input type="date">
+        @for (eintrag of unterrichtEintraege; track $index) {
 
-        <label>Stunde</label>
-        <input type="number">
+        <div class="eintrag">
 
-        <label>Raum</label>
-        <input type="text">
+            <div class="eintrag-header">
+
+                <h3>Eintrag {{ $index + 1 }}</h3>
+
+                <button type="button" (click)="toggleEintrag($index)">
+                    {{ eintrag.expanded ? '▼' : '▶' }}
+                </button>
+
+            </div>
+
+            @if (eintrag.expanded) {
+
+            <label>Datum</label>
+            <input type="date" [(ngModel)]="eintrag.datum">
+
+            <label>Tag</label>
+            <select [(ngModel)]="eintrag.tag">
+                <option value="">Bitte auswählen</option>
+                <option value="Montag">Montag</option>
+                <option value="Dienstag">Dienstag</option>
+                <option value="Mittwoch">Mittwoch</option>
+                <option value="Donnerstag">Donnerstag</option>
+                <option value="Freitag">Freitag</option>
+            </select>
+
+            <label>U-Std</label>
+            <input type="number" [(ngModel)]="eintrag.stunde">
+
+            <label>Raum</label>
+            <input type="text" [(ngModel)]="eintrag.raum">
+
+            <h4>Bemerkung</h4>
+
+            <label>
+                <input type="radio" [name]="'bemerkung' + $index" value="VORGEHALTEN" [(ngModel)]="eintrag.bemerkung">
+                Vorgehalten
+            </label>
+
+            <label>
+                <input type="radio" [name]="'bemerkung' + $index" value="NACHGEHALTEN" [(ngModel)]="eintrag.bemerkung">
+                Nachgehalten
+            </label>
+
+            <label>
+                <input type="radio" [name]="'bemerkung' + $index" value="TAUSCH" [(ngModel)]="eintrag.bemerkung">
+                Tausch mit
+            </label>
+
+            @if (eintrag.bemerkung === 'TAUSCH') {
+
+            <label>Tauschpartner</label>
+            <input type="text" [(ngModel)]="eintrag.tauschMit">
+
+            }
+
+            <label>Am</label>
+            <input type="date" [(ngModel)]="eintrag.bemerkungDatum">
+
+            <label>U-Std</label>
+            <input type="number" [(ngModel)]="eintrag.bemerkungStunde">
+
+            @if (unterrichtEintraege.length > 1) {
+
+            <button type="button" (click)="removeEintrag($index)">
+                − Eintrag entfernen
+            </button>
+
+            }
+
+            }
+
+        </div>
+
+        <hr>
+
+        }
+
+        <button type="button" (click)="addEintrag()">
+            + Weitere Stunde hinzufügen
+        </button>
 
     </div>
 

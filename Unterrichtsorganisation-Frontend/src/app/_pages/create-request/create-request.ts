@@ -33,6 +33,47 @@ export class CreateRequest {
 
   veranstaltungsArt = '';
 
+  vertretungsmaterial: string | null = null;
+
+  unterrichtEintraege = [
+    {
+      datum: '',
+      tag: '',
+      stunde: null as number | null,
+      raum: '',
+      bemerkung: '',
+      tauschMit: '',
+      bemerkungDatum: '',
+      bemerkungStunde: null as number | null,
+      expanded: true
+    }
+  ];
+
+
+  addEintrag(): void {
+    this.unterrichtEintraege.push({
+      datum: '',
+      tag: '',
+      stunde: null,
+      raum: '',
+      bemerkung: '',
+      tauschMit: '',
+      bemerkungDatum: '',
+      bemerkungStunde: null,
+      expanded: true
+    });
+  }
+
+  toggleEintrag(index: number): void {
+    this.unterrichtEintraege[index].expanded =
+      !this.unterrichtEintraege[index].expanded;
+  }
+
+  removeEintrag(index: number): void {
+    this.unterrichtEintraege.splice(index, 1);
+  }
+
+
   absenden(): void {
 
     console.log({
@@ -42,7 +83,9 @@ export class CreateRequest {
       datumBis: this.datumBis,
       zeitVon: this.zeitVon,
       zeitBis: this.zeitBis,
-      veranstaltungsArt: this.veranstaltungsArt
+      veranstaltungsArt: this.veranstaltungsArt,
+      vertretungsmaterial: this.vertretungsmaterial,
+      unterrichtEintraege: this.unterrichtEintraege
     });
 
   }
